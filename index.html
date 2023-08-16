@@ -15,10 +15,52 @@
             src="https://kit.fontawesome.com/be82c3333b.js"
             crossorigin="anonymous"
         ></script>
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                // Transition from 'page-listing' to 'page-details'
+                $("#page-listing .btn-buy").click(function () {
+                    $(".page-listing-container").hide();
+                    $(".page-detail-container").show();
+                });
+
+                // Transition from 'page-details' to 'page-checkout'
+                $("#page-detail .go-to-checkout").click(function () {
+                    $(".page-detail-container").hide();
+                    $(".page-checkout-container").show();
+                });
+
+                // Transition from 'page-details' back to 'page-listing'
+                $("#page-detail .go-back-listing").click(function () {
+                    $(".page-detail-container").hide();
+                    $(".page-listing-container").show();
+                });
+
+                // Transition from 'page-checkout' to 'page-summary'
+                $("#page-checkout .go-to-summary").click(function () {
+                    $(".page-checkout-container").hide();
+                    $(".page-summary-container").show();
+                });
+
+                // Transition from 'page-checkout' back to 'page-details'
+                $("#page-checkout .go-back-details").click(function () {
+                    $(".page-checkout-container").hide();
+                    $(".page-detail-container").show();
+                });
+
+                // Transition from 'page-summary' back to 'page-listing' for both buttons
+                $(
+                    "#page-summary .go-back-listing, #page-summary .continue"
+                ).click(function () {
+                    $(".page-summary-container").hide();
+                    $(".page-listing-container").show();
+                });
+            });
+        </script>
     </head>
     <body>
         <div class="phone-frame">
-            <!-- <div class="phone-screen px-3 py-3">
+            <div class="phone-screen px-3 py-3 page-listing-container">
                 <div class="container" id="page-listing">
                     <div class="row align-items-center g-2">
                         <div class="col">
@@ -66,10 +108,11 @@
                                 <div class="col text-end">
                                     <span
                                         class="badge rounded-pill text-bg-success p-2 btn-buy"
-                                        >&nbsp;
-                                        <i class="fa-solid fa-bag-shopping"></i>
-                                        &nbsp;Buy&nbsp;</span
                                     >
+                                        &nbsp;
+                                        <i class="fa-solid fa-bag-shopping"></i>
+                                        &nbsp;Buy&nbsp;
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -296,14 +339,13 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
-            <!-- <div class="phone-screen">
+            </div>
+            <div class="phone-screen page-detail-container">
                 <div class="container" id="page-detail">
                     <div class="row hero">
                         <div class="col py-3">
                             <div
-                                class="icon-circle icon-circle-detail"
-                                style="color: white"
+                                class="icon-circle icon-circle-detail white go-back-listing"
                             >
                                 <i
                                     class="fa-solid fa-arrow-left-long fa-xs"
@@ -382,19 +424,21 @@
                     </div>
                     <div class="row placeorder bgwhite">
                         <div class="col px-4">
-                            <button class="btn btn-success btn-lg btn-block">
+                            <button
+                                class="btn btn-success btn-lg btn-block go-to-checkout"
+                            >
                                 <span>PLACE ORDER</span
                                 >&nbsp;&nbsp;&nbsp;&nbsp;$4.12
                             </button>
                         </div>
                     </div>
                 </div>
-            </div> -->
-            <!-- <div class="phone-screen py-3 bggreen">
+            </div>
+            <div class="phone-screen py-3 bggreen page-checkout-container">
                 <div class="container" id="page-checkout">
                     <div class="row align-items-center g-2 white">
                         <div class="col">
-                            <div class="icon-circle black">
+                            <div class="icon-circle black go-back-details">
                                 <i
                                     class="fa-solid fa-arrow-left-long fa-xs"
                                 ></i>
@@ -468,7 +512,7 @@
                             </div>
                             <div class="row placeorder mb-5">
                                 <button
-                                    class="btn btn-success btn-lg btn-block"
+                                    class="btn btn-success btn-lg btn-block go-to-summary"
                                 >
                                     <span>Pay Now</span>
                                 </button>
@@ -476,12 +520,12 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
-            <div class="phone-screen py-3 bggreen">
+            </div>
+            <div class="phone-screen py-3 bggreen page-summary-container">
                 <div class="container" id="page-summary">
                     <div class="row align-items-center g-2 white">
                         <div class="col">
-                            <div class="icon-circle black">
+                            <div class="icon-circle black go-back-listing">
                                 <i
                                     class="fa-solid fa-arrow-left-long fa-xs"
                                 ></i>
@@ -554,7 +598,7 @@
                             </div>
                             <div class="row placeorder pt-3 mb-5">
                                 <button
-                                    class="btn btn-success btn-lg btn-block"
+                                    class="btn btn-success btn-lg btn-block continue"
                                 >
                                     <span>Continue Shopping</span>
                                 </button>

@@ -1,3 +1,9 @@
+.page-detail-container,
+.page-checkout-container,
+.page-summary-container {
+    display: none;
+}
+
 .phone-frame {
     width: 375px; /* Width of an iPhone X */
     height: 812px; /* Height of an iPhone X */
@@ -72,6 +78,7 @@
     font-weight: 400;
     color: rgb(67, 144, 114) !important;
     background-color: rgb(211,235,226) !important;
+    cursor: pointer;
 }
 
 /* product detail page */
@@ -86,6 +93,10 @@
 
 #page-detail .row.hero {
     min-height: 250px;
+}
+
+.go-back-listing {
+    cursor: pointer;
 }
 
 .detail-main {
@@ -195,6 +206,10 @@
 }
 .black {
     color: black !important;
+}
+
+.go-back-details {
+    cursor: pointer;
 }
 
 .bggreen {
